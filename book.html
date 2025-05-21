@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kibeh Camp Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    body {
+      background-color: #fdf9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+   /* Sticky Header */
+    .nav-bar {
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4a3c31;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #a75f2b;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li {
+      padding: 8px 16px;
+    }
+    .dropdown-menu li a {
+      color: #4a3c31;
+    }
+    .book-btn {
+      background-color: #a75f2b;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .book-btn:hover {
+      background-color: #8c4b21;
+    }
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-content a {
+      background: linear-gradient(90deg, #b3834f, #a4702c);
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .hero-content a:hover {
+      transform: scale(1.05);
+    }
+
+    section.booking {
+      padding: 4rem 2rem;
+      background-color: #fff;
+      max-width: 850px;
+      margin: -60px auto 4rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    section.booking h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #5e3b1e;
+      font-size: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, select, textarea, button {
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #b3834f;
+      outline: none;
+      box-shadow: 0 0 5px rgba(179,131,79,0.4);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #b3834f, #a4702c);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* زر المينيو */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #3a2e24;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* جهة الشمال في الناف بار */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* زرار الهامبرجر مخفي في الديسكتوب */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 25px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+
+/* موبايل أقل من 768 */
+@media (max-width: 767px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #ffffff; /* خلفية بيضاء */
+  }
+
+  /* نخلي .nav-left تاخد العرض كامل */
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* نظهر زرار الهامبرجر */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    background-color: #7b4a00; /* لون بني غامق للخطوط */
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* القائمة مخفية افتراضياً */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f0e6; /* لون بيج فاتح صحراوي */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(123, 74, 0, 0.3); /* ظل بني */
+    z-index: 1000;
+  }
+
+  /* لما القائمة مفعلة تظهر */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  /* روابط القائمة */
+  .nav-links li a {
+    color: #5a3200; /* بني غامق */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+
+  /* زرار الحجز بداخل القائمة */
+  .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #b86b00; /* برتقالي داكن */
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(184, 107, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #7b4a00; /* بني غامق عند المرور */
+  }
+
+  /* Dropdown menu داخل القائمة الموبايل */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+.main-header{
+  display: none;
+}
+.hero-content span{
+  display: none;
+}
+.hero-content h1::before{
+  display: none;
+}
+  .dropdown:hover .dropdown-menu {
+    display: none; /* نلغي ال hover لأن الموبايل ما بيستخدمش hover */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 0;
+    color: #5a3200; /* بني غامق */
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  
+  <header>
+<nav class="nav-bar">
+  <div class="nav-left">
+    <div class="logo">
+      <img src="img/Screenshot 2025-05-18 150531.png" alt="Logo" />
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="Tours.html">Tours ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="fullfay.html">Full day tour</a></li>
+        <li><a href="tour5.html">6 hour tour</a></li>
+        <li><a href="tour6.html">5 hour tour</a></li>
+        <li><a href="tour2.html">4 hour tour</a></li>
+        <li><a href="tour2h.html">3 hour tour</a></li>
+        <li><a href="tourho2.html">2 hour tour</a></li>
+        <li><a href="camel.html">Camel riding tour</a></li>
+      </ul>
+    </li>
+    <li><a href="Accommodations.html">Accommodations</a></li>
+    <li><a href="info.html">Info</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+      <a href="book." class="book-"></a>
+</nav>
+
+
+</style>
+
+    <video autoplay muted loop>
+      <source src="img/istockphoto-1282731595-640_adpp_is.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Contact Bronze Camp</h1>
+      <p>Your desert adventure starts here</p>
+      <a href="#booking">Book Now</a>
+    </div>
+  </header>
+
+  <section class="booking" id="booking">
+    <form id="bookingForm">
+  <!-- الحقول زي ما هي -->
+  <label>First Name:</label>
+  <input type="text" name="firstName" required>
+
+  <label>Last Name:</label>
+  <input type="text" name="lastName" required>
+
+  <label>Email Address:</label>
+  <input type="email" name="email" required>
+
+  <label>Mobile Phone Number:</label>
+  <input type="tel" name="phone" required>
+
+  <label>Number of Adults:</label>
+  <input type="number" name="adults" min="0" required>
+
+  <label>Number of Children:</label>
+  <input type="number" name="children" min="0">
+
+  <label>Arrival Date:</label>
+  <input type="date" name="arrivalDate" required>
+
+  <label>Arrival Time:</label>
+  <select name="arrivalTime" required>
+    <option disabled selected>Select your arrival time</option>
+    <option>Morning (9:30 AM)</option>
+    <option>Before Sunset</option>
+  </select>
+
+  <label>Departure Date:</label>
+  <input type="date" name="departureDate" required>
+
+  <label>Tour Package:</label>
+  <select name="tourPackage" required>
+    <option disabled selected>Select a Package</option>
+    <option value="Full day tour">Full day tour</option>
+    <option value="6 hour tour">6 hour tour</option>
+    <option value="5 hour tour">5 hour tour</option>
+    <option value="4 hour tour">4 hour tour</option>
+    <option value="3 hour tour">3 hour tour</option>
+    <option value="2 hour tour">2 hour tour</option>
+    <option value="Camel riding tour">Camel riding tour</option>
+  </select>
+
+  <label>Dietary Restrictions:</label>
+  <input type="text" name="diet" placeholder="E.g. Vegetarian, Vegan, Allergies">
+
+  <label>Questions or Remarks:</label>
+  <textarea name="remarks" placeholder="Let us know if you have any questions or comments..."></textarea>
+
+  <label>How did you find us?</label>
+  <select name="foundUs">
+    <option>Instagram</option>
+    <option>Facebook</option>
+    <option>Google Search</option>
+    <option>TripAdvisor</option>
+    <option>Another Guidebook</option>
+    <option>Other</option>
+  </select>
+
+  <label>
+    <input type="checkbox" name="privacy" required> I accept the Privacy Policy
+  </label>
+
+  <label>
+    <input type="checkbox" name="cancelPolicy" required> I accept the Cancellation and Rescheduling Policy
+  </label>
+
+  <button type="submit">Book My Trip</button>
+</form>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // لمنع إعادة تحميل الصفحة
+
+    const form = e.target;
+
+    const data = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      adults: form.adults.value,
+      children: form.children.value || '0',
+      arrivalDate: form.arrivalDate.value,
+      arrivalTime: form.arrivalTime.value,
+      departureDate: form.departureDate.value,
+      tourPackage: form.tourPackage.value,
+      diet: form.diet.value || 'None',
+      remarks: form.remarks.value || 'None',
+      foundUs: form.foundUs.value || 'Not specified',
+    };
+
+    let message = 
+`Booking Request:
+First Name: ${data.firstName}
+Last Name: ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Adults: ${data.adults}
+Children: ${data.children}
+Arrival Date: ${data.arrivalDate}
+Arrival Time: ${data.arrivalTime}
+Departure Date: ${data.departureDate}
+Tour Package: ${data.tourPackage}
+Dietary Restrictions: ${data.diet}
+Questions/Remarks: ${data.remarks}
+Found Us Via: ${data.foundUs}`;
+
+    // ترميز الرسالة لل url
+    const encodedMessage = encodeURIComponent(message);
+
+    // رقم واتساب بصيغة دولية صحيحة (بدون 00)
+    const whatsappNumber = "962772041701";
+
+    // رابط واتساب
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // فتح واتساب في تبويب جديد
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
+  </section>
+</body>
+</html>

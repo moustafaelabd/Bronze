@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Desert Camp</title>
+  <style>
+
+
+       @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+  text-decoration: none;
+}
+
+:root {
+  --main-color: #d2b48c;
+  --dark-color: #3a2e24;
+  --light-color: #f4f1ee;
+  --accent-color: #a0522d;
+}
+
+body {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+  direction: ltr;
+}
+
+a.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 4.5rem;
+    border: .2rem solid #e0a96d;
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .5s;
+    margin-right: 2rem;
+    color: #fff;
+  }
+  a.btn:hover{
+    background: transparent;
+    box-shadow: none;   
+    box-shadow: 0 0 1rem #FFC107;
+    color: #F4A521;
+  }
+:root {
+  --primary-color: #c29958;
+  --text-color: #333;
+  --bg-color: #fff;
+}
+
+.main-header {
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.nav-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+}
+
+.dropdown-menu li a {
+  color: var(--text-color);
+}
+
+.book-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #b58945;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .book-btn {
+    margin-top: 10px;
+  }
+}
+
+    .hero {
+      position: relative;
+  background: url('img/212b942d-42d1-48b3-b65d-c73debeef390.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #fff;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation-delay: 0.2s;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      animation-delay: 0.4s;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: var(--accent-color);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card1 {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      color: var(--dark-color);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .card1:hover {
+      transform: translateY(-5px);
+    }
+
+    section.sustainability {
+      background-color: #fefbf8;
+    }
+
+    .city-section {
+      padding: 2rem 1rem 4rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      cursor: pointer;
+      color: var(--dark-color);
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      border-bottom: 3px solid var(--main-color);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .card-content p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .card-content button {
+      background: linear-gradient(to left, #e0a96d, #e0a96f);
+      border: none;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      outline-offset: 2px;
+    }
+
+    .card-content button:hover {
+      background: linear-gradient(to left, #996d3d, #cc7920);
+    }
+
+    .section.activity {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+    }
+
+    .activity_left, .activity_right {
+      flex: 1 1 400px;
+    }
+
+    .about_header_primary_title {
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--dark-color);
+      margin-bottom: 25px;
+    }
+
+    .activity_img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1rem;
+    }
+
+    @media(max-width: 900px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .hero {
+        height: auto;
+        padding: 80px 20px;
+      }
+
+      .card {
+        width: 90%;
+      }
+
+      .section.activity {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .activity_img {
+        max-width: 100%;
+      }
+    }
+    .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.about-section {
+  background: linear-gradient(to bottom, #fffaf4, #fdf2e9);
+  padding: 5rem 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.text-content {
+  flex: 1 1 500px;
+}
+
+.text-content h2 {
+  font-size: 2.7rem;
+  color: #4e3523;
+  margin-bottom: 1.5rem;
+}
+
+.text-content p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.btn-book {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #b4753b;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-book:hover {
+  background-color: #8e5b2c;
+}
+
+.image-content {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.image-box {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-box img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .text-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .btn-book {
+    margin: 1rem auto 0;
+  }
+}
+
+.contact-camping {
+  background: #f3f1e7; /* light earthy background */
+  padding: 60px 20px;
+        font-family: 'Tajawal', sans-serif;
+  color: #4a4a4a;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-camping h2 {
+  font-size: 2.8rem;
+  padding-right: 100px;
+  margin-right: 10px;
+  color: #2e4a1f; /* dark green */
+  font-weight: bold;
+      font-family: 'Tajawal', sans-serif;
+}
+
+.contact-camping p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #556b2f;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  text-align: left;
+}
+
+.info-item {
+  background: white;
+  box-shadow: 0 6px 15px rgba(46, 74, 31, 0.15);
+  border-radius: 15px;
+  padding: 25px 30px;
+  flex: 1 1 40%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(46, 74, 31, 0.25);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #69933d;
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  margin: 0 0 8px 0;
+  color: #2e4a1f;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.info-item a {
+  color: #3b521f;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.info-item a:hover {
+  text-decoration: underline;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #3b521f;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #69933d;
+}
+   main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      font-family: 'Cairo', sans-serif;
+      color: #c9964f;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #c9964f;
+      padding-bottom: 6px;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: #5a4b20;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      color: #6b582a;
+      font-size: 1.1rem;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    footer {
+      background-color: #c9964f;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+    
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* زر المينيو */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #3a2e24;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* جهة الشمال في الناف بار */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* زرار الهامبرجر مخفي في الديسكتوب */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 25px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+
+/* موبايل أقل من 768 */
+@media (max-width: 767px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #ffffff; /* خلفية بيضاء */
+  }
+
+  /* نخلي .nav-left تاخد العرض كامل */
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* نظهر زرار الهامبرجر */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    background-color: #7b4a00; /* لون بني غامق للخطوط */
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* القائمة مخفية افتراضياً */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f0e6; /* لون بيج فاتح صحراوي */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(123, 74, 0, 0.3); /* ظل بني */
+    z-index: 1000;
+  }
+
+  /* لما القائمة مفعلة تظهر */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  /* روابط القائمة */
+  .nav-links li a {
+    color: #5a3200; /* بني غامق */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+
+  /* زرار الحجز بداخل القائمة */
+  .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #b86b00; /* برتقالي داكن */
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(184, 107, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #7b4a00; /* بني غامق عند المرور */
+  }
+
+  /* Dropdown menu داخل القائمة الموبايل */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+.main-header{
+  display: none;
+}
+.hero-content span{
+  display: none;
+}
+.hero-content h1::before{
+  display: none;
+}
+  .dropdown:hover .dropdown-menu {
+    display: none; /* نلغي ال hover لأن الموبايل ما بيستخدمش hover */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 0;
+    color: #5a3200; /* بني غامق */
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="nav-bar">
+  <div class="nav-left">
+    <div class="logo">
+      <img src="img/Screenshot 2025-05-18 150531.png" alt="Logo" />
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="Tours.html">Tours ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="fullfay.html">Full day tour</a></li>
+        <li><a href="tour5.html">6 hour tour</a></li>
+        <li><a href="tour6.html">5 hour tour</a></li>
+        <li><a href="tour2.html">4 hour tour</a></li>
+        <li><a href="tour2h.html">3 hour tour</a></li>
+        <li><a href="tourho2.html">2 hour tour</a></li>
+        <li><a href="camel.html">Camel riding tour</a></li>
+      </ul>
+    </li>
+    <li><a href="Accommodations.html">Accommodations</a></li>
+    <li><a href="info.html">Info</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+      <a href="book.html" class="book-btn">Book</a>
+</div>
+
+</header>
+
+
+<section class="hero" aria-label="Homepage">
+  <h1>Discover the Beauty of Desert Camping</h1>
+  <p>Experience the magic of the desert under the stars with cozy tents and unforgettable adventures.</p>
+</section>
+<section class="about-section">
+  <div class="about-container">
+    <div class="text-content">
+      <h2>Welcome to Bronze Mountains Camp</h2>
+      <p>
+        Experience the magic of the Jordanian desert like never before. At <strong>Bronze Mountains Camp</strong>,
+        we bring you closer to nature, tradition, and tranquility in the heart of golden dunes.
+      </p>
+      <p>
+        From cozy, beautifully decorated tents to delicious Bedouin cuisine under the stars,
+        every moment at our camp is designed to inspire peace and wonder. Join us for a unique adventure
+        filled with warmth, culture, and unforgettable views.
+      </p>
+      <a href="#contact" class="btn-book">Book Your Stay</a>
+    </div>
+    <div class="image-content">
+      <div class="image-box">
+        <img src="img/Screenshot 2025-05-18 150531.png" alt="Desert Camp View">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <main>
+    <section>
+      <h2>Who We Are</h2>
+      <p>
+        Bronze Mountain Camp is your gateway to an authentic and unforgettable desert camping experience in the heart of Wadi Rum. Established with a passion for preserving Bedouin traditions and offering exceptional hospitality, we blend comfort and adventure under the spectacular desert skies.
+      </p>
+      <p>
+        Our dedicated team is committed to creating memorable moments that connect you with the beauty and serenity of the desert.
+      </p>
+    </section>
+
+    <section>
+      <h2>How We Treat Our Guests</h2>
+      <p>At Bronze Mountain Camp, our guests are at the center of everything we do. We believe that a great camping experience is built on:</p>
+      <ul>
+        <li><strong>Personalized Service:</strong> From the moment you inquire to your last night under the stars, we tailor every detail to your preferences.</li>
+        <li><strong>Authentic Hospitality:</strong> We welcome you with Bedouin warmth, sharing stories, traditional meals, and cultural insights.</li>
+        <li><strong>Safety and Comfort:</strong> Our camps are equipped with clean facilities, quality bedding, and experienced guides to ensure your peace of mind.</li>
+        <li><strong>Respect for Nature:</strong> We prioritize eco-friendly practices to preserve Wadi Rum's natural beauty for generations to come.</li>
+        <li><strong>Continuous Support:</strong> Our team is available 24/7 for any questions or assistance before, during, and after your stay.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Our Commitment</h2>
+      <p>
+        We strive to deliver a seamless experience, combining adventure, culture, and relaxation. By choosing Bronze Mountain Camp, you are not only booking a trip but becoming part of a story woven by the desert winds and ancient sands.
+      </p>
+      <p>
+        We invite you to explore, dream, and create lasting memories with us.
+      </p>
+    </section>
+  </main>
+<section aria-labelledby="features-title">
+  <h2 id="features-title" class="section-title">Why Choose Us?</h2>
+  <div class="features">
+    <div class="card1" tabindex="0">
+      <h3>All-Inclusive Camping</h3>
+      <p>Enjoy fully equipped tents, delicious meals, and guided tours in every package.</p>
+    </div>
+    <div class="card1" tabindex="0">
+      <h3>Eco-Friendly</h3>
+      <p>We follow sustainable practices to preserve the desert’s beauty for future generations.</p>
+    </div>
+    <div class="card1" tabindex="0">
+      <h3>Professional Guides</h3>
+      <p>Our guides are camping and history experts ensuring a safe and enriching experience.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sustainability" aria-labelledby="sustainability-title">
+  <h2 id="sustainability-title" class="section-title">Our Commitment to Sustainability</h2>
+  <p style="max-width:700px; margin:auto; color:#444; font-size:1.1rem; line-height:1.6;">
+    We ensure environmental balance by using solar energy, reducing waste, and educating visitors about sustainable tourism.
+  </p>
+</section>
+
+<section class="city-section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section-title">Our Projects</h2>
+  <div class="cards">
+
+    <div class="card" tabindex="0">
+      <img src="img/0e8c8212-d41b-47fa-b760-4f4bc8354a01.jpg" alt="Camping near Cairo Pyramids" />
+      <div class="card-content">
+        <h3>The Small Tower Surrounded by Colorful Sands
+
+</h3>
+        <p>This image shows a small tower standing tall amid vibrant, colorful sands. The unique colors and textures create a breathtaking natural scene, perfect for camping and adventure lovers.
+
+</p>
+        <button aria-label="Explore Cairo Adventures">Explore</button>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0">
+      <img src="img/7563b2fc-001f-4505-bf49-69703114bacb.jpg" alt="Camping in Luxor" />
+      <div class="card-content">
+        <h3>Film Location – Wadi Rum's Stunning Landscape
+
+</h3>
+        <p>This photo is from a famous film set located in Wadi Rum, showcasing its vast desert landscape and dramatic rock formations. The area is popular for its cinematic views and natural beauty.
+
+</p>
+        <button aria-label="Explore Luxor Experience">Explore</button>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0">
+      <img src="img/8af94e07-a36e-4b26-9e6c-09593c661303.jpg" alt="Camping near Red Sea in Hurghada" />
+      <div class="card-content">
+        <h3>Mushroom Rock</h3>
+        <p>This is the famous Mushroom Rock, a stunning natural rock formation surrounded by colorful mountains and sand. It is a well-known landmark in the Wadi, attracting visitors with its unique shape and breathtaking scenery.
+
+.</p>
+        <button aria-label="Explore Hurghada Retreat">Explore</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="container">
+      <img src="img/Screenshot 2025-05-18 150531.png
+      " alt="Bronze Mountains Camp Logo" class="logo">
+      <h1 class="site-title">Bronze Mountains Camp</h1>
+    </div>
+  </header>
+
+
+<section class="section activity" aria-labelledby="about-title">
+  <div class="activity_left">
+    <h2 id="about-title" class="about_header_primary_title">Discover the Desert & Our Camp</h2>
+    <p>
+    Nestled amidst the vast golden dunes, our desert camp blends seamlessly with the natural beauty of the landscape. 
+    Surrounded by towering sandstone cliffs and endless skies, the camp features traditional Bedouin-style tents equipped 
+    with modern comforts, offering you an authentic yet cozy experience. Whether you relax under the starry desert night 
+    or embark on adventurous camel rides, the breathtaking views and peaceful ambiance make every moment unforgettable.
+  </p>
+  </div>
+  <div class="activity_right">
+    <img class="activity_img" src="img/560945215.jpg" alt="Desert camp tents at sunset" />
+  </div>
+</section>
+<section class="section activity" aria-labelledby="about-title">
+  <div class="activity_left">
+    <h2 id="about-title" class="about_header_primary_title">About Our Desert Camp</h2>
+   <p>
+  Our desert camp offers a unique escape from the hustle and bustle of city life. Nestled in the heart of the desert, we provide cozy tents equipped with all essentials for a comfortable stay, delicious traditional meals, and exciting activities like camel rides, stargazing, and cultural performances. Whether you're seeking adventure or relaxation, our camp is designed to connect you deeply with nature while respecting and preserving the environment. Join us to experience authentic desert life and create unforgettable memories under the vast, star-filled sky.
+</p>
+
+  </div>
+  <div class="activity_right">
+    <img class="activity_img" src="img/blog-1.png" alt="Desert camp tents at sunset" />
+  </div>
+</section>
+<section class="section activity" aria-labelledby="about-title">
+  <div class="activity_left">
+    <h2 id="about-title" class="about_header_primary_title">The Beauty of Our Desert and Camping Journey</h2>
+    <p>
+    The beauty of our desert lies not only in its golden sands and shining sun but also in the breathtaking tranquility it offers. 
+    Our camping journey takes you on a trip through the enchanting desert nature, amidst shifting dunes kissed by the gentle breeze 
+    and under the peaceful glow of the moonlit sky. During the trip, you can enjoy camel rides, listen to Bedouin stories, and feel 
+    the calmness away from the city's noise. It's a complete experience that lets you live the spirit of the desert in every detail.
+  </p>
+  </div>
+  <div class="activity_right">
+    <img class="activity_img" src="img/10d04106-18fb-4354-b9ca-a0ba3f79458e.jpg" alt="Desert camp tents at sunset" />
+  </div>
+</section>
+<section class="section activity" aria-labelledby="about-title">
+  <div class="activity_left">
+    <h2 id="about-title" class="about_header_primary_title">Inside Our Camp
+
+</h2>
+    <p>
+Our camp’s interior is designed with great care and attention to detail. Each tent is spacious and beautifully arranged, with neatly made beds that invite you to rest comfortably after a long day in the desert. The bedding is clean and soft, providing a cozy and warm atmosphere. We pride ourselves on offering high-quality service to all our guests, ensuring that everything is well-maintained and that you feel welcomed and cared for throughout your stay. Whether it’s the comfortable sleeping arrangements or the attentive staff, every aspect of our camp is made to create a peaceful and enjoyable experience.
+
+
+  </p>
+  </div>
+  <div class="activity_right">
+    <img class="activity_img" src="img/blog-2.png" alt="Desert camp tents at sunset" />
+  </div>
+</section>
+<section class="section activity" aria-labelledby="about-title">
+  <div class="activity_left">
+    <h2 id="about-title" class="about_header_primary_title">Become part of the Bronze Mountains Camp family
+
+
+</h2>
+    <p>
+Become part of the Bronze Mountains Camp family
+We believe in the power of togetherness and consider you a member of our extended Bronze Mountains Camp family. We want you to feel the same way. To make that happen, we encourage you to come with an open mind and a willingness to participate in your desert adventure. Everyone’s active participation is necessary to create something extraordinary and unforgettable. Therefore, bring your enthusiasm, curiosity, and a sense of adventure, and let’s create desert memories for life.
+Come as our guest, leave as our friend!
+
+  </p>
+  </div>
+  <div class="activity_right">
+    <img class="activity_img" src="img/cd830206-69bd-4c46-9f75-946be88c7221.jpg" alt="Desert camp tents at sunset" />
+  </div>
+</section>
+<section aria-labelledby="desert-camp2-title" style="display: flex; justify-content: center; margin: 30px 0;">
+  <img src="img/481247850_122094345020842993_2948015896690985853_n.jpg" alt="Desert camp tents at sunset"
+       style="width: 90%; max-width: 1000px; height: 400px; object-fit: cover; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.25);" />
+</section>
+
+<section class="contact-camping">
+  <div class="container">
+    <h2>Contact Us</h2>
+    
+    <div class="contact-info">
+      <div class="info-item">
+        <span class="icon">📞</span>
+        <div>
+          <h3>Phone</h3>
+          <a href="tel:+00962772041701">00962772041701</a>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <span class="icon">✉️</span>
+        <div>
+          <h3>Email</h3>
+          <a href="mahmoud.abuhazem1983@gmail.com">mahmoud.abuhazem1983@gmail.com</a>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <div>
+          <h3>Address</h3>
+          <p>wadi rum, ALAQBA</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <span class="icon">🌐</span>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</style>
+<footer>
+  &copy; 2025 Desert Camp. All rights reserved.
+</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById("slider");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+
+  if (slider && prevBtn && nextBtn) {
+    const card = document.querySelector(".facility-card");
+    const cardWidth = card ? card.offsetWidth + 20 : 300; // لو مش لاقي البطاقة افترض 300
+
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: cardWidth, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    });
+  }
+
+  // تعيين جميع عناصر الـ dropdown
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      drop.classList.toggle('active');
+    });
+  });
+
+  // هنا نصحح اختيار navLinks من class مش id
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      toggle.classList.toggle('active');
+    });
+  }
+});
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+  </script>
+</body>
+</html>

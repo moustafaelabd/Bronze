@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Kibeh Camp</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f3ee;
+      color: #4b3b2b;
+      line-height: 1.5;
+    }
+    /* Sticky Header */
+    .nav-bar {
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4a3c31;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #a75f2b;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li {
+      padding: 8px 16px;
+    }
+    .dropdown-menu li a {
+      color: #4a3c31;
+    }
+    .book-btn {
+      background-color: #a75f2b;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .book-btn:hover {
+      background-color: #8c4b21;
+    }
+    .hero {
+      position: relative;
+      height: 450px;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #f1eadc;
+      box-shadow: inset 0 0 0 1000px rgba(140, 98, 57, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero p {
+      margin-top: 14px;
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      margin: 50px auto 80px;
+      gap: 60px 40px;
+      padding: 0 20px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #5d4a37;
+    }
+
+    .info h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .info p {
+      font-size: 1.2rem;
+      max-width: 460px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 25px;
+    }
+
+    form label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #6e5a44;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #d4c9b5;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      color: #4b3b2b;
+    }
+
+    form input:focus, form textarea:focus, form select:focus {
+      outline: none;
+      border-color: #a67843;
+      box-shadow: 0 0 8px rgba(166, 120, 67, 0.5);
+    }
+
+    form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button.submit-btn {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #8c6239, #c9b29b);
+      border: none;
+      padding: 16px 0;
+      border-radius: 14px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgb(140 98 57 / 0.45);
+      transition: background 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background: linear-gradient(135deg, #a17849, #d3b891);
+    }
+
+    .bottom-section {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .promise {
+      color: #7b664c;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .promise h3 {
+      font-weight: 700;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+    }
+
+    .promise ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+    }
+
+    .promise ul li {
+      margin: 12px 0;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .promise ul li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #a67843;
+      font-weight: 700;
+    }
+
+    .map iframe {
+      border: 0;
+      width: 100%;
+      height: 350px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgb(0 0 0 / 0.12);
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+        gap: 40px 0;
+        margin: 30px auto 60px;
+      }
+
+      .info {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      form textarea {
+        grid-column: 1;
+      }
+    }
+    
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* زر المينيو */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #3a2e24;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* جهة الشمال في الناف بار */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* زرار الهامبرجر مخفي في الديسكتوب */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 25px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+
+/* موبايل أقل من 768 */
+@media (max-width: 767px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #ffffff; /* خلفية بيضاء */
+  }
+
+  /* نخلي .nav-left تاخد العرض كامل */
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* نظهر زرار الهامبرجر */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    background-color: #7b4a00; /* لون بني غامق للخطوط */
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* القائمة مخفية افتراضياً */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f0e6; /* لون بيج فاتح صحراوي */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(123, 74, 0, 0.3); /* ظل بني */
+    z-index: 1000;
+  }
+
+  /* لما القائمة مفعلة تظهر */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  /* روابط القائمة */
+  .nav-links li a {
+    color: #5a3200; /* بني غامق */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+
+  /* زرار الحجز بداخل القائمة */
+  .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #b86b00; /* برتقالي داكن */
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(184, 107, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #7b4a00; /* بني غامق عند المرور */
+  }
+
+  /* Dropdown menu داخل القائمة الموبايل */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+.main-header{
+  display: none;
+}
+.hero-content span{
+  display: none;
+}
+.hero-content h1::before{
+  display: none;
+}
+  .dropdown:hover .dropdown-menu {
+    display: none; /* نلغي ال hover لأن الموبايل ما بيستخدمش hover */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 0;
+    color: #5a3200; /* بني غامق */
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+}
+
+
+  </style>
+</head>
+<!-- CSS مكتبة Choices -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+<!-- JS مكتبة Choices -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<body>
+<nav class="nav-bar">
+  <div class="nav-left">
+    <div class="logo">
+      <img src="img/Screenshot 2025-05-18 150531.png" alt="Logo" />
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="Tours.html">Tours ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="fullfay.html">Full day tour</a></li>
+        <li><a href="tour5.html">6 hour tour</a></li>
+        <li><a href="tour6.html">5 hour tour</a></li>
+        <li><a href="tour2.html">4 hour tour</a></li>
+        <li><a href="tour2h.html">3 hour tour</a></li>
+        <li><a href="tourho2.html">2 hour tour</a></li>
+        <li><a href="camel.html">Camel riding tour</a></li>
+      </ul>
+    </li>
+    <li><a href="Accommodations.html">Accommodations</a></li>
+    <li><a href="info.html">Info</a></li>
+  </ul>
+      <a href="book.html" class="book-btn">Book</a>
+</nav>
+
+
+<section class="hero">
+  <div>
+    <h1>Contact Kibeh Camp</h1>
+    <p>Your desert adventure starts here</p>
+  </div>
+</section>
+
+<main>
+  <section class="info">
+    <h2>Get In Touch</h2>
+    <p>Have questions or want to book an unforgettable desert trip? Our team is ready to assist you with personalized plans and support.</p>
+  </section>
+
+  <form id="contactForm">
+    <div>
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+    </div>
+
+    <div>
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" placeholder="example@example.com" required />
+    </div>
+
+    <div>
+<label for="country">Country*</label>
+<select id="country" name="country" required>
+
+  <!-- Arab Countries -->
+  <optgroup label="🌍 Arab Countries">
+    <option value="20">🇪🇬 Egypt (+20)</option>
+    <option value="966">🇸🇦 Saudi Arabia (+966)</option>
+    <option value="971">🇦🇪 United Arab Emirates (+971)</option>
+    <option value="962">🇯🇴 Jordan (+962)</option>
+    <option value="961">🇱🇧 Lebanon (+961)</option>
+    <option value="963">🇸🇾 Syria (+963)</option>
+    <option value="964">🇮🇶 Iraq (+964)</option>
+    <option value="965">🇰🇼 Kuwait (+965)</option>
+    <option value="974">🇶🇦 Qatar (+974)</option>
+    <option value="968">🇴🇲 Oman (+968)</option>
+    <option value="973">🇧🇭 Bahrain (+973)</option>
+    <option value="967">🇾🇪 Yemen (+967)</option>
+    <option value="213">🇩🇿 Algeria (+213)</option>
+    <option value="212">🇲🇦 Morocco (+212)</option>
+    <option value="216">🇹🇳 Tunisia (+216)</option>
+    <option value="218">🇱🇾 Libya (+218)</option>
+    <option value="249">🇸🇩 Sudan (+249)</option>
+    <option value="970">🇵🇸 Palestine (+970)</option>
+    <option value="252">🇸🇴 Somalia (+252)</option>
+    <option value="222">🇲🇷 Mauritania (+222)</option>
+    <option value="253">🇩🇯 Djibouti (+253)</option>
+    <option value="269">🇰🇲 Comoros (+269)</option>
+  </optgroup>
+
+  <!-- African Countries -->
+  <optgroup label="🌍 African Countries">
+    <option value="244">🇦🇴 Angola (+244)</option>
+    <option value="229">🇧🇯 Benin (+229)</option>
+    <option value="226">🇧🇫 Burkina Faso (+226)</option>
+    <option value="257">🇧🇮 Burundi (+257)</option>
+    <option value="237">🇨🇲 Cameroon (+237)</option>
+    <option value="238">🇨🇻 Cape Verde (+238)</option>
+    <option value="236">🇨🇫 Central African Republic (+236)</option>
+    <option value="235">🇹🇩 Chad (+235)</option>
+    <option value="243">🇨🇩 Congo, DR (+243)</option>
+    <option value="242">🇨🇬 Congo, Republic (+242)</option>
+    <option value="225">🇨🇮 Côte d'Ivoire (+225)</option>
+    <option value="240">🇬🇶 Equatorial Guinea (+240)</option>
+    <option value="291">🇪🇷 Eritrea (+291)</option>
+    <option value="251">🇪🇹 Ethiopia (+251)</option>
+    <option value="241">🇬🇦 Gabon (+241)</option>
+    <option value="220">🇬🇲 Gambia (+220)</option>
+    <option value="233">🇬🇭 Ghana (+233)</option>
+    <option value="224">🇬🇳 Guinea (+224)</option>
+    <option value="245">🇬🇼 Guinea-Bissau (+245)</option>
+    <option value="254">🇰🇪 Kenya (+254)</option>
+    <option value="266">🇱🇸 Lesotho (+266)</option>
+    <option value="231">🇱🇷 Liberia (+231)</option>
+    <option value="261">🇲🇬 Madagascar (+261)</option>
+    <option value="265">🇲🇼 Malawi (+265)</option>
+    <option value="223">🇲🇱 Mali (+223)</option>
+    <option value="230">🇲🇺 Mauritius (+230)</option>
+    <option value="258">🇲🇿 Mozambique (+258)</option>
+    <option value="264">🇳🇦 Namibia (+264)</option>
+    <option value="227">🇳🇪 Niger (+227)</option>
+    <option value="234">🇳🇬 Nigeria (+234)</option>
+    <option value="250">🇷🇼 Rwanda (+250)</option>
+    <option value="239">🇸🇹 São Tomé and Príncipe (+239)</option>
+    <option value="221">🇸🇳 Senegal (+221)</option>
+    <option value="248">🇸🇨 Seychelles (+248)</option>
+    <option value="232">🇸🇱 Sierra Leone (+232)</option>
+    <option value="27">🇿🇦 South Africa (+27)</option>
+    <option value="211">🇸🇸 South Sudan (+211)</option>
+    <option value="268">🇸🇿 Eswatini (+268)</option>
+    <option value="255">🇹🇿 Tanzania (+255)</option>
+    <option value="228">🇹🇬 Togo (+228)</option>
+    <option value="256">🇺🇬 Uganda (+256)</option>
+    <option value="260">🇿🇲 Zambia (+260)</option>
+    <option value="263">🇿🇼 Zimbabwe (+263)</option>
+  </optgroup>
+
+  <!-- Europe -->
+  <optgroup label="🌍 Europe">
+    <option value="44">🇬🇧 United Kingdom (+44)</option>
+    <option value="33">🇫🇷 France (+33)</option>
+    <option value="49">🇩🇪 Germany (+49)</option>
+    <option value="39">🇮🇹 Italy (+39)</option>
+    <option value="34">🇪🇸 Spain (+34)</option>
+    <option value="351">🇵🇹 Portugal (+351)</option>
+    <option value="31">🇳🇱 Netherlands (+31)</option>
+    <option value="32">🇧🇪 Belgium (+32)</option>
+    <option value="41">🇨🇭 Switzerland (+41)</option>
+    <option value="43">🇦🇹 Austria (+43)</option>
+    <option value="46">🇸🇪 Sweden (+46)</option>
+    <option value="47">🇳🇴 Norway (+47)</option>
+    <option value="358">🇫🇮 Finland (+358)</option>
+    <option value="48">🇵🇱 Poland (+48)</option>
+    <option value="36">🇭🇺 Hungary (+36)</option>
+    <option value="40">🇷🇴 Romania (+40)</option>
+    <option value="30">🇬🇷 Greece (+30)</option>
+    <option value="380">🇺🇦 Ukraine (+380)</option>
+    <option value="7">🇷🇺 Russia (+7)</option>
+  </optgroup>
+
+  <!-- Americas -->
+  <optgroup label="🌍 Americas">
+    <option value="1">🇺🇸 United States (+1)</option>
+    <option value="1">🇨🇦 Canada (+1)</option>
+    <option value="52">🇲🇽 Mexico (+52)</option>
+    <option value="54">🇦🇷 Argentina (+54)</option>
+    <option value="55">🇧🇷 Brazil (+55)</option>
+    <option value="56">🇨🇱 Chile (+56)</option>
+    <option value="57">🇨🇴 Colombia (+57)</option>
+    <option value="507">🇵🇦 Panama (+507)</option>
+    <option value="51">🇵🇪 Peru (+51)</option>
+    <option value="593">🇪🇨 Ecuador (+593)</option>
+    <option value="58">🇻🇪 Venezuela (+58)</option>
+  </optgroup>
+
+  <!-- Asia & Oceania -->
+  <optgroup label="🌍 Asia & Oceania">
+    <option value="61">🇦🇺 Australia (+61)</option>
+    <option value="64">🇳🇿 New Zealand (+64)</option>
+    <option value="86">🇨🇳 China (+86)</option>
+    <option value="81">🇯🇵 Japan (+81)</option>
+    <option value="82">🇰🇷 South Korea (+82)</option>
+    <option value="91">🇮🇳 India (+91)</option>
+    <option value="92">🇵🇰 Pakistan (+92)</option>
+    <option value="880">🇧🇩 Bangladesh (+880)</option>
+    <option value="63">🇵🇭 Philippines (+63)</option>
+    <option value="62">🇮🇩 Indonesia (+62)</option>
+    <option value="98">🇮🇷 Iran (+98)</option>
+    <option value="60">🇲🇾 Malaysia (+60)</option>
+    <option value="66">🇹🇭 Thailand (+66)</option>
+    <option value="974">🇶🇦 Qatar (+974)</option>
+  </optgroup>
+
+</select>
+
+
+    </div>
+
+    <div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="123 456 7890" />
+    </div>
+
+    <div style="grid-column: 1 / -1;">
+      <label for="message">Your Message*</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</main>
+
+<div class="bottom-section">
+  <section class="promise">
+    <h3>Our Promise</h3>
+    <ul>
+      <li>Real human responses, not bots.</li>
+      <li>Quick replies within 24 hours.</li>
+      <li>Support in English and Arabic.</li>
+      <li>Flexible bookings for families and groups.</li>
+    </ul>
+  </section>
+
+  <section class="map">
+    <h3 style="text-align:center; margin-bottom: 20px; color:#5d4a37;">Visit Us</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.042854970717!2d35.439879015115484!3d29.52639968201925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1500463a8f6b5e31%3A0xb2a6e4623f788ae0!2sWadi%20Rum%20Village!5e0!3m2!1sen!2s!4v1684990711302!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wadi Rum Location"></iframe>
+  </section>
+</div>
+
+<script>
+    // إرسال البيانات للواتساب
+   document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // رقم واتساب الأردني
+    const businessNumber = "962772041701";
+    const text = `Hello, my name is ${name}. Here is my message: ${message}`;
+
+    // افتح رابط واتساب في تبويب جديد
+    const url = `https://wa.me/${businessNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+    // عند تحميل الصفحة
+    document.addEventListener("DOMContentLoaded", function () {
+      const slider = document.getElementById("slider");
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+
+      if (slider && prevBtn && nextBtn) {
+        const card = document.querySelector(".facility-card");
+        const cardWidth = card ? card.offsetWidth + 20 : 300;
+
+        nextBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: cardWidth, behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: -cardWidth, behavior: "smooth" });
+        });
+      }
+
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(drop => {
+        drop.addEventListener('click', (e) => {
+          e.stopPropagation();
+          drop.classList.toggle('active');
+        });
+      });
+
+      const toggle = document.getElementById('menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (toggle && navLinks) {
+        toggle.addEventListener('click', () => {
+          navLinks.classList.toggle('show');
+          toggle.classList.toggle('active');
+        });
+      }
+
+      // تفعيل مكتبة Choices على قائمة كود الدولة
+      const countrySelect = document.getElementById('country');
+      const choices = new Choices(countrySelect, {
+        searchEnabled: true,
+        itemSelectText: '',
+        shouldSort: false
+      });
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
+</style>
+</body>
+</html>

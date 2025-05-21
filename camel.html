@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Camel Riding Tour | Wadi Rum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #c2955f;
+      --primary-color: #c2955f;
+      --text-color: #3b2e1a;
+      --bg-color: #fdfaf5;
+      --dark: #3b2e1a;
+      --accent: #fff4e3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg-color);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+
+    /* Header Navigation Bar */
+    .main-header {
+      background-color: var(--bg-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    .nav-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      padding: 8px 16px;
+    }
+
+    .dropdown-menu li a {
+      color: var(--text-color);
+    }
+
+    .book-btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background-color: #a67c4f;
+    }
+
+    /* Hero Header */
+    header.hero {
+      background: url('img/ea7179c3-e1eb-4b34-b3ef-96f3897e9f04.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+
+    header.hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    header.hero h1 {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 3rem;
+      padding: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    .highlight {
+      background-color: var(--main-color);
+      color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      color: var(--main-color);
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      background-color: #3b2e1a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .book-btn {
+        margin-top: 10px;
+      }
+    }
+    .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* زر المينيو */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #3a2e24;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* جهة الشمال في الناف بار */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* زرار الهامبرجر مخفي في الديسكتوب */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 25px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+
+/* موبايل أقل من 768 */
+@media (max-width: 767px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #ffffff; /* خلفية بيضاء */
+  }
+
+  /* نخلي .nav-left تاخد العرض كامل */
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* نظهر زرار الهامبرجر */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    background-color: #7b4a00; /* لون بني غامق للخطوط */
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* القائمة مخفية افتراضياً */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f0e6; /* لون بيج فاتح صحراوي */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(123, 74, 0, 0.3); /* ظل بني */
+    z-index: 1000;
+  }
+
+  /* لما القائمة مفعلة تظهر */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  /* روابط القائمة */
+  .nav-links li a {
+    color: #5a3200; /* بني غامق */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+
+  /* زرار الحجز بداخل القائمة */
+  .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #b86b00; /* برتقالي داكن */
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(184, 107, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #7b4a00; /* بني غامق عند المرور */
+  }
+
+  /* Dropdown menu داخل القائمة الموبايل */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+.main-header{
+  display: none;
+}
+.hero-content span{
+  display: none;
+}
+.hero-content h1::before{
+  display: none;
+}
+  .dropdown:hover .dropdown-menu {
+    display: none; /* نلغي ال hover لأن الموبايل ما بيستخدمش hover */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 0;
+    color: #5a3200; /* بني غامق */
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+}
+
+
+  </style>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-left">
+    <div class="logo">
+      <img src="img/Screenshot 2025-05-18 150531.png" alt="Logo" />
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="Tours.html">Tours ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="fullfay.html">Full day tour</a></li>
+        <li><a href="tour5.html">6 hour tour</a></li>
+        <li><a href="tour6.html">5 hour tour</a></li>
+        <li><a href="tour2.html">4 hour tour</a></li>
+        <li><a href="tour2h.html">3 hour tour</a></li>
+        <li><a href="tourho2.html">2 hour tour</a></li>
+        <li><a href="camel.html">Camel riding tour</a></li>
+      </ul>
+    </li>
+    <li><a href="Accommodations.html">Accommodations</a></li>
+    <li><a href="info.html">Info</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+      <a href="book.html" class="book-btn">Book</a>
+</nav>
+
+
+  <header class="hero">
+    <h1>Camel Riding Tour – Discover Wadi Rum the Traditional Way</h1>
+  </header>
+
+  <section class="section">
+    <div class="highlight">
+      🌄 Ride through the golden desert like a true Bedouin – Peaceful, authentic, unforgettable.
+    </div>
+
+    <h2>Tour Experience</h2>
+    <p>
+      Camel riding tours in Wadi Rum offer a truly unique way to explore the desert. Whether you're looking for a short peaceful ride or a longer journey through the dunes and mountains, you'll enjoy every step of this timeless adventure.
+    </p>
+
+    <ul>
+      <li>Ride like ancient Bedouins across golden sands</li>
+      <li>Choose short rides or extended journeys</li>
+      <li>Feel the silence of the desert and the rhythm of the camel</li>
+      <li>Connect deeply with nature and yourself</li>
+      <li>Stunning views of sand dunes and rocky mountains</li>
+    </ul>
+
+    <a href="tel:+962779999999" class="book-btn">📞 Book Your Camel Ride Now</a>
+  </section>
+
+  <section class="section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="img/تنزيل (4).jpg" alt="Camel tour in the desert">
+      <img src="img/80680b09-97bd-40dc-b756-e74d7c629823.jpg" alt="Riding camels through the dunes">
+      <img src="img/13c88799-c9d5-4b1e-aa6f-27462cdf7538.jpg" alt="Camel resting in Wadi Rum sunset">
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Kibeh Camp | Wadi Rum Camel Experiences 🐪✨
+  </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById("slider");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+
+  if (slider && prevBtn && nextBtn) {
+    const card = document.querySelector(".facility-card");
+    const cardWidth = card ? card.offsetWidth + 20 : 300; // لو مش لاقي البطاقة افترض 300
+
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: cardWidth, behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    });
+  }
+
+  // تعيين جميع عناصر الـ dropdown
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach(drop => {
+    drop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      drop.classList.toggle('active');
+    });
+  });
+
+  // هنا نصحح اختيار navLinks من class مش id
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      toggle.classList.toggle('active');
+    });
+  }
+});
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+  </script>
+</body>
+</html>

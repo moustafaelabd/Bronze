@@ -1,0 +1,979 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap');
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  background-color: #f4e9d8; /* لون رملي هادئ */
+  color: #3a2e24; /* بني غامق رملي */
+  background-image: url('https://www.transparenttextures.com/patterns/sandpaper.png');
+  background-repeat: repeat;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color:  #8b5e3c;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  color: #ffff;
+}
+.main-header .call:hover{
+    color: #d3c125;
+}
+.main-header .whatsapp:hover{
+    color: #25D366;
+}
+.main-header a.mail:hover {
+color: #8e44ad;
+}
+
+#ico:hover{
+color: #E1306C;
+}
+.main-header a.facebook:hover {
+  color: #1877F2;
+}
+.main-header a.find:hover {
+  color: #EA4335;
+}
+
+/* Header */
+.main-header {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding: 20px 10px;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1000;
+  width: 70px;
+}
+.facilities-page .main-header {
+  display: none;
+}
+
+ a.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 4.5rem;
+    border: .2rem solid #e0a96d;
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .5s;
+    margin-right: 2rem;
+    color: #fff;
+  }
+  a.btn:hover{
+    background: transparent;
+    box-shadow: none;   
+    box-shadow: 0 0 1rem #FFC107;
+    color: #F4A521;
+  }
+
+.main-header a {
+  color: #fff;
+  text-decoration: none;    display: inline-flex;
+    padding: .8rem;
+    transition: .4s;
+    border-radius: 50%;
+    color: #e0a96d;
+    font-size: 2rem;
+    margin: 0 .8rem;
+  font-size: 0.8rem;
+        border: .2rem solid #e0a96d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+      margin: 0 .8rem;
+  transition: color 0.2s;
+  font-weight: 700;
+  text-align: center;
+}
+
+.main-header a i {
+  font-size: 1.3rem;
+}
+
+.main-header a:hover {
+  color: #f4a261;
+    color: #0D0D2B;
+    background-color: #F4A521;
+    box-shadow: 0 0 1rem #FFC107;
+  
+}
+/* تنسيق القائمة المنسدلة */
+.nav-links .dropdown {
+  position: relative;
+}
+
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-links .dropdown-menu li {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.nav-links .dropdown-menu li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ممكن تضيف شوية تأثيرات تجميلية */
+.nav-links .dropdown-menu li:hover {
+  background-color: #f4a261;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  position: sticky; /* يخليه ثابت فوق الصفحة */
+  top: 0;
+  left: 0;
+  width: 100%; /* يمتد بعرض الصفحة */
+  background-color: white; /* أو أي لون تحبه */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ظل خفيف */
+  z-index: 10000; /* عشان يكون فوق كل شيء */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 120px;
+  border-radius: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: #3a2e24; /* بني ترابي */
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #000; /* لون النص عند الهوفر */
+}
+/* الخلفية الداخلية */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 26px;
+  background-color: #f4e9d8; /* بيج رملي */
+  z-index: -1;
+  transition: background-color 0.4s ease;
+}
+
+/* خلفية بلون الشجر عند الهوفر */
+.nav-links a:hover::after {
+  background-color: transparent;
+    color: #000; /* لون النص عند الهوفر */
+  border: 1px solid #f4a261;
+}
+
+/* الإطار الخارجي المتحرك */
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(to right, #c4a77d, #8b5e3c, #c4a77d); /* بني رملي */
+  border-radius: 40px;
+  z-index: -2;
+  animation: border-rotate 3s linear infinite;
+  background-size: 300% 300%;
+}
+
+/* أنيميشن الدوران */
+@keyframes border-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.book-btn {
+  background-color: #e0a96d;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.book-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s ease;
+}
+
+.book-btn:hover::after {
+  left: 100%;
+}
+
+.book-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+   .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* زر المينيو */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #3a2e24;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* جهة الشمال في الناف بار */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* زرار الهامبرجر مخفي في الديسكتوب */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 25px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+
+/* موبايل أقل من 768 */
+@media (max-width: 767px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #ffffff; /* خلفية بيضاء */
+  }
+
+  /* نخلي .nav-left تاخد العرض كامل */
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* نظهر زرار الهامبرجر */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    background-color: #7b4a00; /* لون بني غامق للخطوط */
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* القائمة مخفية افتراضياً */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f0e6; /* لون بيج فاتح صحراوي */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(123, 74, 0, 0.3); /* ظل بني */
+    z-index: 1000;
+  }
+
+  /* لما القائمة مفعلة تظهر */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  /* روابط القائمة */
+  .nav-links li a {
+    color: #5a3200; /* بني غامق */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+
+  /* زرار الحجز بداخل القائمة */
+  .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #b86b00; /* برتقالي داكن */
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(184, 107, 0, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .book-btn:hover {
+    background-color: #7b4a00; /* بني غامق عند المرور */
+  }
+
+  /* Dropdown menu داخل القائمة الموبايل */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 15px;
+  }
+.main-header{
+  display: none;
+}
+.hero-content span{
+  display: none;
+}
+.hero-content h1::before{
+  display: none;
+}
+  .dropdown:hover .dropdown-menu {
+    display: none; /* نلغي ال hover لأن الموبايل ما بيستخدمش hover */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 0;
+    color: #5a3200; /* بني غامق */
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    color: #b86b00; /* برتقالي داكن */
+  }
+}
+
+/*section*/
+.hero {
+  background: url('img/3170c2a3-4051-4ce7-af4f-c83a07bcaf17.jpg') center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.hero h1 span{
+  font-size: 3rem;
+   animation: display-text 1 6s linear infinite;
+       -webkit-text-stroke: .07rem #000;
+           color: transparent;
+    animation-delay: calc(-4s * var(--i));
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+@keyframes display-text {
+    25%,
+    100%{
+        display: none;
+    }
+   
+  }
+  .hero-content h1::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
+    animation: text 4s linear infinite;
+}
+@keyframes text{
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+  }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .search-box {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .search-field {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
+    .card {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #fffaf2;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card-text {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .card-text h2 {
+      color: #944d00;
+      margin-top: 0;
+    }
+
+    .card-text p {
+      color: #444;
+      line-height: 1.6;
+    }
+
+   
+     a.btns{
+    display: block;
+    margin-top: 1rem;
+    padding: 6px 2rem;
+    border-radius: 4.5rem;
+    border: .2rem solid #e0a96d;
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .5s;
+    margin-right: 2rem;
+    color: #000;
+  }
+  a.btns:hover{
+    background: transparent;
+    box-shadow: none;   
+    box-shadow: 0 0 1rem #FFC107;
+    color: #F4A521;
+  }
+.nomads-section {
+  padding: 80px 20px; /* مسافة من فوق وتحت */
+}
+
+    .card-image {
+      flex: 1;
+      min-height: 300px;
+      background-image: url('img/3170c2a3-4051-4ce7-af4f-c83a07bcaf17.jpg'); /* ← غيّر دي لاسم الصورة */
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+      }
+
+      .card-image {
+        height: 250px;
+      }
+    }
+      .camp-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .camp-card {
+      background: #fffaf3;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border: 2px solid #e2c9a5;
+      transition: transform 0.3s ease;
+    }
+
+    .camp-card:hover {
+      transform: scale(1.02);
+    }
+
+    .camp-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .camp-content {
+      padding: 20px;
+    }
+
+    .camp-title {
+      font-size: 1.4rem;
+      color: #7a4922;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .camp-desc {
+      color: #4b372e;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .camp-btn {
+      background-color: #7a4922;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      box-shadow: 2px 2px 0 #3e2a1d;
+      transition: background 0.3s;
+    }
+
+    .camp-btn:hover {
+      background-color: #5c3619;
+    }
+  .about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 20px;
+  gap: 50px;
+  background: linear-gradient(to bottom right, #f9f3ea, #f3e8d5);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.about-details {
+  flex: 1 1 450px;
+  max-width: 600px;
+  color: #4b392d;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.about-details h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #8b5c2c;
+}
+
+.about-details p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+  .abo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 20px;
+  gap: 50px;
+  background: linear-gradient(to bottom right, #f9f3ea, #f3e8d5);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.abo-details {
+  flex: 1 1 450px;
+  max-width: 600px;
+  color: #4b392d;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.abo-details h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #8b5c2c;
+}
+
+.abo-details p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.btn-discover {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #8b5c2c;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-discover:hover {
+  background-color: #a26a3d;
+}
+
+.about-img {
+  flex: 1 1 400px;
+  max-width: 550px;
+  animation: slideInRight 1s ease forwards;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+.abo-img {
+  flex: 1 1 400px;
+  max-width: 550px;
+  animation: slideInRight 1s ease forwards;
+}
+
+.abo-img img {
+  width: 100%;
+  height: 320px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+/* .icon_boxes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+  margin-top: 6rem;
+}
+.icon_box {
+  text-align: center;
+}
+.icon {
+  width: 25%;
+}
+.icon_p {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.activity_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 3rem;
+}
+.activity_img {
+  max-width: 80%;
+}
+.about_header_primary_title_2 {
+  margin-bottom: 5rem;
+  font-size: 3.6rem;
+}
+.activity_right {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2rem;
+}
+.icon_box_2 {
+  text-align: left;
+}
+.icon_box_margin_top {
+  margin-top: 4rem;
+} */
+ 
+    .adventure-row {
+      display: flex;
+      margin-left: 50px;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .adventure-item {
+      width: 400px;
+    }
+
+    .adventure-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .adventure-item h3 {
+      color: #8b5c2d;
+      margin: 15px  100px;
+      font-size: 18px;
+    }
+
+    .adventure-item p {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 15px 100px;
+    }
+
+    .adventure-item button {
+      padding: 10px 20px;
+      border: 2px solid #8b5c2d;
+      background: white;
+      color: #8b5c2d;
+      font-weight: bold;
+      margin: 3rem 100px;
+      cursor: pointer;
+    }
+.facilities {
+  
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.facilities-title {
+    font-size: 42px;
+    margin-bottom: 50px;
+    color: #8b5c2d;
+    font-weight: bold;
+}
+
+.slider-container {
+    margin: auto;
+    position: relative;
+    overflow: hidden; /* بدلاً من scroll */
+
+}
+
+.slider {
+    display: flex;
+    gap: 30px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
+
+.facility-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 700px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.facility-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.facility-card:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.facility-info {
+    text-align: right;
+    color: white;
+}
+
+.facility-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.facility-info p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* أزرار السلايدر */
+.slider-btn {
+    background: #8b5c2d;
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
